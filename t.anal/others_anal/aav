@@ -24,3 +24,13 @@ pd 1 @ 0x0040decc~?dword
 EXPECT="1
 "
 run_test
+
+NAME="aav thumb detection"
+FILE=../../bins/firmware/armthumb.bin
+ARGS="-aarm -b32"
+CMDS="aav
+f
+"
+EXPECT="0x0000000c 4 aav.0x0000000c
+"
+run_test
