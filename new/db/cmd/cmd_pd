@@ -505,3 +505,16 @@ CMDS='pd 1 @b:32 @0xc
 EXPECT='            0x0000000c      01207047       ldrbmi r2, [r0, -r1]!
 '
 RUN
+NAME=ahb should not be deleted with @b (#9751)
+FILE=../bins/firmware/armthumb.bin
+ARGS=-aarm -b32
+CMDS='ahb 16 @0xc
+ah*
+pd 1 @b:32 @0xc
+ah*
+'
+EXPECT='ahb 16 @ 0xc
+            0x0000000c      01207047       ldrbmi r2, [r0, -r1]!
+ahb 16 @ 0xc
+'
+RUN
