@@ -497,3 +497,11 @@ pd 1 @ 0x260
 EXPECT='            0x00000260      80e0           ldi r24, 0x00               ; 0x276 ; "hello world!"
 '
 RUN
+NAME=@b and @addr should coexist
+FILE=../bins/firmware/armthumb.bin
+ARGS=-aarm -b32
+CMDS='pd 1 @b:32 @0xc
+'
+EXPECT='            0x0000000c      01207047       ldrbmi r2, [r0, -r1]!
+'
+RUN
